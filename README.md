@@ -41,13 +41,13 @@ proxy.qq.com在接收到请求后，再次请求微信API接口，并将微信AP
 
 ## 代码说明
 
-#### 配置文件 `config.php`
+#### 配置文件
 
-- 需要填写appid和appsecret的参数
 
-#### 加密授权 `auth.php`
 
-- 在该文件下设置`sign参数`和`action参数`的加密方式
+#### 加密授权 
+
+
 
 #### 转发请求处理 `forward.php`
 
