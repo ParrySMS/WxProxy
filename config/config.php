@@ -12,7 +12,7 @@ define('APPSECRET','');
 
 
 //获取code之后需要重定向的网址
-define("REDIRECT_URI",'');
+define('REDIRECT_URI','');
 
 //限制的接口范围
 
@@ -23,6 +23,10 @@ define('ACTION_URL_OAUTH',json_encode([
     'oauth2Userinfo'=>' https://api.weixin.qq.com/sns/userinfo',
     'oauth2IsVaildAccessToken'=>'https://api.weixin.qq.com/sns/auth',
 ]));
+
+
+//信息
+define('MSG_ERROR','Error: ');
 
 //todo 按组拆分掉url
 define('ACTION_REGION','return array(

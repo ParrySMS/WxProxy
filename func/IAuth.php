@@ -10,5 +10,4 @@ interface IAuth
 {
     public function isVaildSign($sign);
 
-    public function isVaildAction($action);
 }

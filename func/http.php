@@ -32,6 +32,76 @@ to;
     }
 
 
+    /** 发送请求
+     * @param $url
+     * @param null $data
+     * @return mixed
+     */
+    public function post($url, $data = null)
+    {
+        $ch = curl_init();
+        /* 设置验证方式 */
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            'Accept:text/plain;charset=utf-8',
+            'Content-Type:application/x-www-form-urlencoded',
+            'charset=utf-8'
+        ));
+        /* 设置返回结果为流 */
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        /* 设置超时时间*/
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+        /* 设置通信方式 */
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_URL, $url);
+        if (!empty($data)) {
+            curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+        }
+        $result = curl_exec($ch);
+        $error = curl_error($ch);
+        curl_close($ch);
+        if ($result === false) {
+//        echo 'Curl error: ' . $error;
+//            return 'Curl error: ' . $error;
+            throw new Exception('Curl error: ' . $error, 500);
+        } else {
+            return $result;
+        }
+    }
+
+
+    public function get($url, $data = null)
+    {
+        $ch = curl_init();
+        /* 设置验证方式 */
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            'Accept:text/plain;charset=utf-8',
+            'Content-Type:application/x-www-form-urlencoded',
+            'charset=utf-8'
+        ));
+        /* 设置返回结果为流 */
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        /* 设置超时时间*/
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+        /* 设置通信方式 */
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        if (!empty($data)) {
+            $url = $url . '?' . http_build_query($data);
+        }
+        curl_setopt($ch, CURLOPT_URL, $url);
+        $result = curl_exec($ch);
+        $error = curl_error($ch);
+        curl_close($ch);
+        if ($result === false) {
+//            return 'Curl error: ' . $error;
+            throw new Exception('Curl error: ' . $error, 500);
+        } else {
+            return $result;
+        }
+    }
+
     public function status($status_code)
     {
         $http = array(
