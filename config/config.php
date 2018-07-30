@@ -22,10 +22,7 @@ define('ACTION_URL_OAUTH2',json_encode([
     'oauth2RefreshToken'=>'https://api.weixin.qq.com/sns/oauth2/refresh_token',
 ]));
 
-
-
-
-
+//todo 按组拆分掉url
 define('ACTION_REGION','return array(
             \'getSnsAccessToken\'=>\'\',
             \'refreshWxToken\',
