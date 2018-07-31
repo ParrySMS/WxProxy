@@ -6,7 +6,7 @@
  * Time: 10:41
  */
 
-Class Auth implements IAuth
+Class AuthM implements IAuth
 {
     public function isVaildSign($sign)
     {

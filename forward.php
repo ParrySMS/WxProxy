@@ -7,7 +7,7 @@
  */
 
 require "./func/Http.php";
-require "./func/Auth.php";
+require "./func/AuthM.php";
 require "./config/config.php";
 
 try {
@@ -24,7 +24,7 @@ try {
     }
 
     //前端传输的解密 默认无加密
-    $auth = new Auth();
+    $auth = new AuthM();
     $data = $auth->paramsDecode($data);
 
     //获取参数
