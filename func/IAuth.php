@@ -10,4 +10,5 @@ interface IAuth
 {
     public function isVaildSign($sign);
 
+    public function paramsDecode(Array $data);
 }

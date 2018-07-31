@@ -23,5 +23,20 @@ Class Auth implements IAuth
         }
     }
 
+    public function paramsDecode(Array $data)
+    {
+        foreach ($data as $key => $value) {
+            $data[$key]=$this->decode($value);
+        }
+
+        return $data;
+    }
+
+    private function decode($str)
+    {
+        return $str;
+//        return base64_decode($str);
+    }
+
 }
 
