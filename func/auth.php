@@ -23,6 +23,10 @@ Class Auth implements IAuth
         }
     }
 
+    /** 遍历进行解密
+     * @param array $data
+     * @return array|mixed
+     */
     public function paramsDecode(Array $data)
     {
         foreach ($data as $key => $value) {
@@ -32,6 +36,10 @@ Class Auth implements IAuth
         return $data;
     }
 
+    /** 具体的解密方法 默认不解密
+     * @param $str
+     * @return mixed
+     */
     private function decode($str)
     {
         return $str;

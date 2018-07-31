@@ -1,0 +1,4 @@
+*.log
+pmtest.php
+.gitignore
+.gitattributes
