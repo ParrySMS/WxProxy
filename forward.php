@@ -6,7 +6,8 @@
  * Time: 11:51
  */
 
-require "./func/http.php";
+require "./func/Http.php";
+require "./func/Auth.php";
 require "./config/config.php";
 
 try {
